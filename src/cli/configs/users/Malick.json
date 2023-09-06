@@ -1,6 +1,0 @@
-{
-    "username": "Malick",
-    "settings": {
-        "dinnerListReciever": "os.environ.get('LIST_RECIEVER')"
-    }
-}
