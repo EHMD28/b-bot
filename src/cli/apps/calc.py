@@ -6,6 +6,9 @@ def evaluate_equ(equ: str):
         print('You cannot divide by 0')
     except NameError:
         print('Invalid Expression')
+    except TypeError:
+        print('Invalid Expression')
+
         
 
 def calc_area(shape: str):
