@@ -1,6 +1,7 @@
 from BBOT_ASCII_ART_COLORED import BBOT_ASCII_ART_COLORED, VERSION
 from apps.calc import evaluate_equ, calc_area, calc_volume
 from apps.notebooks import choose_notebook
+from login import on_login
 from os import system, name
 
 
@@ -60,7 +61,7 @@ def command_processor(command: str, user: dict = None):
 
 
     if user is not None:
-        ...
+        on_login(user)
     else:
         cp_user_isnt_logged_in()
             

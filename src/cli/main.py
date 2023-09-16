@@ -32,7 +32,7 @@ def main():
             
             while True:
                 inp = input('Enter a command: ')
-                command_processor(inp, user_chosen)
+                command_processor(inp, user)
         except KeyboardInterrupt:
             print('Program Terminated')
         except EOFError:
