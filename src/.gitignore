@@ -1,4 +1,6 @@
 .vscode/
+cli/configs/users/*
+!cli/configs/users/README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
