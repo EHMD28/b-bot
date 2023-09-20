@@ -1,4 +1,5 @@
 from apps.recommend import recommend_dinner_list
+from apps.utils.send_email import find_next_sunday
 from os.path import join as pathjoin
 import json
 
@@ -10,12 +11,13 @@ def create_new_user(username: str):
     if username not in users:
         new_user = { 'username': username,
             'settings': {
-                'dinnerListReciever': None
+                'dinnerListReciever': None,
+                'lastTimeDinnerSent': None,
             } 
         }
         
         with open(pathjoin('configs', 'users', f'{username}.json'), 'x') as f:
-            json.dump(new_user, f)        
+            json.dump(new_user, f, indent=2)        
     else:
         print('User with that name already exists')
     
@@ -70,7 +72,16 @@ def user_login() -> str:
 def on_login(user: dict = None):
     import os
 
-    if user['settings']['dinnerListReciever'] is not None:
-        recommend_dinner_list(eval(user['settings']['dinnerListReciever']))        
-    
+    LIST_RECIEVER = eval(user['settings']['dinnerListReciever'])
+    LAST_SUNDAY_SENT = user['settings']['lastTimeDinnerSent']
+    NEXT_SUNDAY: str = find_next_sunday()
+
+    if (LIST_RECIEVER is not None) and (LAST_SUNDAY_SENT != NEXT_SUNDAY):
+        recommend_dinner_list(LIST_RECIEVER)        
+        with open(pathjoin('configs', 'users', f'{user["username"]}.json'), 'r') as f:
+            content = json.load(f)
+            content['settings']['lastTimeDinnerSent'] = find_next_sunday()
+        with open(pathjoin('configs', 'users', f'{user["username"]}.json'), 'w') as f:
+            json.dump(content, f, indent=2)
+
         
