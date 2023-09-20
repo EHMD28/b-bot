@@ -1,7 +1,8 @@
-from command_processor import command_processor
+from command_processor import command_processor_with_user, command_processor_without_user
 from login import user_login, on_login
 from os.path import join as pathjoin
 import json
+
 
 def main():
     print('Starting...')
@@ -15,13 +16,13 @@ def main():
 
         try:            
             while True:
-                inp = input('Enter a command: ')
-                command_processor(inp)
+                command = input('Enter a command: ')
+                command_processor_without_user(command)
         except KeyboardInterrupt:
             print('Program Terminated')
         except EOFError:
             print('Program Terminated')
-    else:
+    elif user_logged_in:
         print(f"Hello {user_chosen}, I am B-bot. How may I assist you today?")
         
         try:
@@ -31,8 +32,8 @@ def main():
             on_login(user)
             
             while True:
-                inp = input('Enter a command: ')
-                command_processor(inp, user)
+                command = input('Enter a command: ')
+                command_processor_with_user(command, user)
         except KeyboardInterrupt:
             print('Program Terminated')
         except EOFError:
