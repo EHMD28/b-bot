@@ -1,6 +1,6 @@
 from BBOT_ASCII_ART_COLORED import BBOT_ASCII_ART_COLORED, VERSION
 from apps.calc import evaluate_equ, calc_area, calc_volume
-from apps.notebooks import choose_notebook
+from apps.notebooks import notebook_command_processor
 from os import system, name
 
 
@@ -36,7 +36,7 @@ def command_processor_without_user(command: str):
             except SyntaxError:
                 print("Please enter an expression")
         case ['note'] | ['notebook']:
-            choose_notebook()            
+            notebook_command_processor()            
         case ['help']:
             print_help()
         case ['clear']:
@@ -84,7 +84,7 @@ def command_processor_with_user(command: str, user: dict):
             except SyntaxError:
                 print("Please enter an expression")
         case ['note'] | ['notebook']:
-            choose_notebook()            
+            notebook_command_processor()            
         case ['help']:
             print_help()
         case ['clear']:
