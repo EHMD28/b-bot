@@ -1,6 +1,8 @@
 .vscode/
-cli/configs/users/*
-!cli/configs/users/README.md
+cli/configs/users/*.json
+# !cli/configs/users/README.md
+apps/data/notebooks/*
+!apps/data/notebooks/README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
