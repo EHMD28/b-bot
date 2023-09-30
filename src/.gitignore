@@ -1,6 +1,6 @@
 .vscode/
 cli/configs/users/*.json
-cli/configs/general.json
+cli/configs/*.json
 # !cli/configs/users/README.md
 apps/data/notebooks/*
 !apps/data/notebooks/README.md
