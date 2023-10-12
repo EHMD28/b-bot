@@ -19,11 +19,11 @@ def recommend_dinner_list(reciever: str):
         
         next_sunday: str = sendmail.find_next_sunday()
         body = f'''
-            1. {meals[0]}
-            2. {meals[1]}
-            3. {meals[2]}
-            4. {meals[3]}
-            5. {meals[4]}
+            1. {meals_to_send[0]}
+            2. {meals_to_send[1]}
+            3. {meals_to_send[2]}
+            4. {meals_to_send[3]}
+            5. {meals_to_send[4]}
         '''
         email = sendmail.make_EmailMessage(os.environ.get('LIST_RECIEVER'),
                                         os.environ.get('BBOT_EMAIL_ADDRESS'),
