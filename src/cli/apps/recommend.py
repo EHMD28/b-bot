@@ -6,7 +6,6 @@ from random import randint
 
 
 def recommend_dinner_list(reciever: str):
-    # TODO: Add feature where, if dinner list is already sent for the week, it is not sent again
     if reciever is not None:    
         pathjoin = os.path.join
         with open(pathjoin('apps', 'data', 'misc', 'meals.json'), 'r') as f:
