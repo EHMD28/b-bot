@@ -24,32 +24,31 @@ def command_processor_without_user(command: str):
         print(HELP_STRING)
 
     match command.lower().split():
-        case ['area', *shape] | ['calc', 'area', *shape]:
+        case ["area", *shape] | ["calc", "area", *shape]:
             calc_area(shape[0])
-        case ['volume', *shape] | ['calc', 'volume', *shape]:
+        case ["volume", *shape] | ["calc", "volume", *shape]:
             calc_volume(shape[0])
-        case ['calc', *equ] | ['calculator', *equ]:
+        case ["calc", *equ] | ["calculator", *equ]:
             try:
-                equ = ' '.join(equ)
-                equ = equ.replace('^', '**')
+                equ = " ".join(equ)
+                equ = equ.replace("^", "**")
                 evaluate_equ(equ)
             except SyntaxError:
                 print("Please enter an expression")
-        case ['note'] | ['notebook']:
-            notebook_command_processor()            
-        case ['help']:
+        case ["note"] | ["notebook"]:
+            notebook_command_processor()
+        case ["help"]:
             print_help()
-        case ['clear']:
-            cls = lambda: system('cls' if name=='nt'\
-                                else 'clear')
+        case ["clear"]:
+            cls = lambda: system("cls" if name == "nt" else "clear")
             cls()
-        case ['ver'] | ['version']:
+        case ["ver"] | ["version"]:
             print(BBOT_ASCII_ART_COLORED)
             print(VERSION)
-        case ['exit'] | ['goodbye']:
+        case ["exit"] | ["goodbye"]:
             raise KeyboardInterrupt
         case _:
-            print('Invalid Command')
+            print("Invalid Command")
 
 
 def command_processor_with_user(command: str, user: dict):
@@ -72,31 +71,29 @@ def command_processor_with_user(command: str, user: dict):
         print(HELP_STRING)
 
     match command.lower().split():
-        case ['area', *shape] | ['calc', 'area', *shape]:
+        case ["area", *shape] | ["calc", "area", *shape]:
             calc_area(shape[0])
-        case ['volume', *shape] | ['calc', 'volume', *shape]:
+        case ["volume", *shape] | ["calc", "volume", *shape]:
             calc_volume(shape[0])
-        case ['calc', *equ] | ['calculator', *equ]:
+        case ["calc", *equ] | ["calculator", *equ]:
             try:
-                equ = ' '.join(equ)
-                equ = equ.replace('^', '**')
+                equ = " ".join(equ)
+                equ = equ.replace("^", "**")
                 evaluate_equ(equ)
             except SyntaxError:
                 print("Please enter an expression")
-        case ['note'] | ['notebook']:
-            notebook_command_processor()            
-        case ['help']:
+        case ["note"] | ["notebook"]:
+            notebook_command_processor()
+        case ["help"]:
             print_help()
-        case ['clear']:
-            cls = lambda: system('cls' if name=='nt'\
-                                else 'clear')
+        case ["clear"]:
+            cls = lambda: system("cls" if name == "nt" else "clear")
             cls()
-        case ['ver'] | ['version']:
+        case ["ver"] | ["version"]:
             print(BBOT_ASCII_ART_COLORED)
             print(VERSION)
-        case ['exit'] | ['goodbye']:
+        case ["exit"] | ["goodbye"]:
             raise KeyboardInterrupt
         case _:
-            print('Invalid Command')
-            
-            
+            print("Invalid Command")
+
