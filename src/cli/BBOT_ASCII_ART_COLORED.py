@@ -2,7 +2,8 @@ from apps.utils.colors import (
     FG_BLACK,
     FG_CYAN,
     FG_GREEN,
-    FG_WHITE
+    FG_WHITE,
+    COLOR_RESET
 )
 
 
@@ -24,8 +25,9 @@ BBOT_ASCII_ART_COLORED: str = f'''
   ################################       {FG_WHITE}version: 1.0.0{FG_CYAN}
     #########{FG_GREEN}==========={FG_CYAN}#########
       #######################
-          #################\033[0m
+          #################{COLOR_RESET}
 '''
+
 
 VERSION: str = 'B-bot (Butler Bot) version 1.0.0 CLI'
 
