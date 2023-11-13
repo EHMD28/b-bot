@@ -1,4 +1,4 @@
-# B-bot Version 1.0.0 Overview
+# B-bot Version 1.0.0+ Overview
 
 B-bot is my personal virtual assistant made to house all of my virtual activity in one specific place.
 
