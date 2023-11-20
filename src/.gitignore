@@ -4,6 +4,7 @@ cli/configs/*.json
 # !cli/configs/users/README.md
 apps/data/notebooks/*
 !apps/data/notebooks/README.md
+cli/.idea/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
