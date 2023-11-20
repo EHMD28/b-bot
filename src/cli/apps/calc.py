@@ -1,3 +1,5 @@
+import math
+
 def evaluate_equ(equ: str):    
     try:
         print(f'{equ} =',
@@ -70,16 +72,29 @@ def calc_area(shape: str):
 
 
 def calc_volume(shape: str):
-    a: float
-    b: float
-
-    """
-    cube
-    circle
-    rectangular prism
-    """
+    a: float = 0.0
+    b: float = 0.0
+    c: float = 0.0
+    result: float = 0.0
 
     if shape in 'cube':
         a = float(input("Enter side length of cube: "))
-        print(a * a * a)
+        result = a * a * a
+        print(f"Volume for cube with side length {a} is: {result}")
+    elif shape in 'rectangular-prism':
+        a = float(input("Enter length of rectangular prism: "))
+        b = float(input("Enter width of rectangular prism: "))
+        c = float(input("Enter heigh of rectangular prism: "))
+        result = a * b * c
+        print(f"Volume for a {a} x {b} x {c} rectangular prism is: {result}")
+    elif shape in 'pyramid':
+        ...
+    elif shape in 'cone':
+        ...
+    elif shape in 'cylinder':
+        ...
+    elif shape in 'sphere':
+        a = float(input("Enter radius of sphere: "))
+        result = 4 * math.pi * (a * a)
+        print(f"Volume of sphere with radius {a} is {result}")
 
