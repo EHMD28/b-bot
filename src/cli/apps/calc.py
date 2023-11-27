@@ -1,9 +1,41 @@
 import math
 
 
+class Equation:
+    NUMBER = 0
+    OP_PLUS = 1
+    OP_MINUS = 2
+    OP_MULTIPY = 3
+    OP_DIVIDE = 4
+    OP_EXPONENT = 5
+    L_PAR = 6
+    R_PAR = 7
+
+    
+    def __init__(self, equ: str) -> None:
+        self.tokens = Equation.__parse(equ)
+
+
+    def __parse(equ: str) -> list[tuple[int, float]]:
+        for char in equ:
+            match(equ):
+                case "(":
+                    ...
+                case ")":
+                    ...
+                case "+":
+                    ...
+                case "-":
+                    ...
+                case "*":
+                    ...
+                case "/":
+                    ...    
+
+
 def evaluate_equ(equ: str):
     try:
-        print(f"{equ} =", f"{round(eval(equ), 4)}")
+        print("Feature not implemented")
     except ZeroDivisionError:
         print("You cannot divide by 0")
     except NameError:
