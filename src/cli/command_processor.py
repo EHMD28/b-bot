@@ -4,25 +4,27 @@ from apps.notebooks import notebook_command_processor
 from os import system, name
 
 
+HELP_STRING = """
+calculator: ...
+    command: 'calc {expression}'
+    command: 'calc area {shape}'
+    command: 'calc volume {shape}'
+notebook: create, read, and edit notebooks
+    command: 'note' or 'notebook'
+clear: clears the screen of all previous text input
+    command: 'clear'
+exit: terminates program
+    command: 'exit'
+version: prints out version of B-bot that you are running.
+    command: 'ver' or 'version'
+"""
+
+
+def clear_output():
+    system("cls" if name == "nt" else "clear")
+
+
 def command_processor_without_user(command: str):
-    def print_help():
-        HELP_STRING = """
-    calculator: ...
-        command: 'calc {expression}'
-        command: 'calc area {shape}'
-        command: 'calc volume {shape}'
-    notebook: create, read, and edit notebooks
-        command: 'note' or 'notebook'
-    clear: clears the screen of all previous text input
-        command: 'clear'
-    exit: terminates program
-        command: 'exit'
-    version: prints out version of B-bot that you are running.
-        command: 'ver' or 'version'
-    """
-
-        print(HELP_STRING)
-
     match command.lower().split():
         case ["area", *shape] | ["calc", "area", *shape]:
             calc_area(shape[0])
@@ -38,10 +40,9 @@ def command_processor_without_user(command: str):
         case ["note"] | ["notebook"]:
             notebook_command_processor()
         case ["help"]:
-            print_help()
+            print(HELP_STRING)
         case ["clear"]:
-            cls = lambda: system("cls" if name == "nt" else "clear")
-            cls()
+            clear_output()
         case ["ver"] | ["version"]:
             print(BBOT_ASCII_ART_COLORED)
             print(VERSION)
@@ -52,23 +53,6 @@ def command_processor_without_user(command: str):
 
 
 def command_processor_with_user(command: str, user: dict):
-    def print_help():
-        HELP_STRING = """
-    calculator: ...
-        command: 'calc {expression}'
-        command: 'calc area {shape}'
-        command: 'calc volume {shape}'
-    notebook: create, read, and edit notebooks
-        command: 'note' or 'notebook'
-    clear: clears the screen of all previous text input
-        command: 'clear'
-    exit: terminates program
-        command: 'exit'
-    version: prints out version of B-bot that you are running.
-        command: 'ver' or 'version'
-    """
-
-        print(HELP_STRING)
 
     match command.lower().split():
         case ["area", *shape] | ["calc", "area", *shape]:
@@ -85,10 +69,9 @@ def command_processor_with_user(command: str, user: dict):
         case ["note"] | ["notebook"]:
             notebook_command_processor()
         case ["help"]:
-            print_help()
+            print(HELP_STRING)
         case ["clear"]:
-            cls = lambda: system("cls" if name == "nt" else "clear")
-            cls()
+            clear_output()
         case ["ver"] | ["version"]:
             print(BBOT_ASCII_ART_COLORED)
             print(VERSION)
@@ -96,4 +79,3 @@ def command_processor_with_user(command: str, user: dict):
             raise KeyboardInterrupt
         case _:
             print("Invalid Command")
-
