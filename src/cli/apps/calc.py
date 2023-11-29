@@ -11,37 +11,80 @@ class Equation:
     L_PAR = 6
     R_PAR = 7
 
-    
-    def __init__(self, equ: str) -> None:
-        self.tokens = Equation.__parse(equ)
+    def __init__(self, equ: str = "") -> None:
+        self.tokens = Equation._parse(equ)
+        self._print_tokens()
 
 
-    def __parse(equ: str) -> list[tuple[int, float]]:
-        for char in equ:
-            match(equ):
-                case "(":
-                    ...
-                case ")":
-                    ...
-                case "+":
-                    ...
-                case "-":
-                    ...
-                case "*":
-                    ...
-                case "/":
-                    ...    
+    def _parse(equ: str) -> list[tuple[int, float | int]]:
+        tokens: list[ tuple[int, float | int] ] = []
+
+        for index, char in enumerate(equ):
+            if char in "1234567890.":
+                # 2 + 4
+                # [2] + 4
+                # [2~] + 4
+                # [2]~ + 4
+                
+                j = index
+                while equ[j] in "1234567890." and j < (len(equ) - 1):
+                    j += 1
+                value = float(equ[index:j + 1])
+                equ.replace(equ[index:j + 1], "")
+                tokens.append( (Equation.NUMBER, value) )
+            elif char in "+-*/^":
+                if char == "+":
+                    tokens.append( (Equation.OP_PLUS, 0) )
+                elif char == "-":
+                    tokens.append( (Equation.OP_MINUS, 0) )
+                elif char == "*":
+                    tokens.append( (Equation.OP_MULTIPY, 0) )
+                elif char == "/":
+                    tokens.append( (Equation.OP_DIVIDE, 0) )
+                elif char == "^":
+                    tokens.append( (Equation.OP_EXPONENT, 0) )
+            elif char in "()":
+                if char == "(":
+                    tokens.append( (Equation.L_PAR, 0) )
+                elif char == ")":
+                    tokens.append( (Equation.R_PAR, 0) )
+
+        return tokens
+
+
+    def _print_tokens(self) -> None:
+        for index, token in enumerate(self.tokens):
+            print(f"{index}. ", end="")
+            match token[0]:
+                case Equation.NUMBER:
+                    print(f"NUMBER: {token[1]}")
+                case Equation.OP_PLUS:
+                    print("OP_PLUS")
+                case Equation.OP_MINUS:
+                    print("OP_MINUS")
+                case Equation.OP_MULTIPY:
+                    print("OP_MULTIPLY")
+                case Equation.OP_DIVIDE:
+                    print("OP_DIVIDE")
+                case Equation.OP_EXPONENT:
+                    print("OP_EXPONENT")
+                case Equation.L_PAR:
+                    print("L_PAR")
+                case Equation.R_PAR:
+                    print("R_PAR")
 
 
 def evaluate_equ(equ: str):
     try:
-        print("Feature not implemented")
-    except ZeroDivisionError:
-        print("You cannot divide by 0")
-    except NameError:
-        print("Invalid Expression")
-    except TypeError:
-        print("Invalid Expression")
+        Equation("2 + 4")
+    except Exception as e:
+        print(f"An error occured: {e}")
+    # except ZeroDivisionError:
+    #     print("You cannot divide by 0")
+    # except NameError:
+    #     print("Invalid Expression")
+    # except TypeError:
+    #     print("Invalid Expression")
 
 
 def calc_area(shape: str):

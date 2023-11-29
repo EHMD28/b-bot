@@ -62,7 +62,6 @@ def command_processor_with_user(command: str, user: dict):
         case ["calc", *equ] | ["calculator", *equ]:
             try:
                 equ = " ".join(equ)
-                equ = equ.replace("^", "**")
                 evaluate_equ(equ)
             except SyntaxError:
                 print("Please enter an expression")
