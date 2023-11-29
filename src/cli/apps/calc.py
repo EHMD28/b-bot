@@ -77,14 +77,12 @@ class Equation:
 def evaluate_equ(equ: str):
     try:
         Equation("2 + 4")
-    except Exception as e:
-        print(f"An error occured: {e}")
-    # except ZeroDivisionError:
-    #     print("You cannot divide by 0")
-    # except NameError:
-    #     print("Invalid Expression")
-    # except TypeError:
-    #     print("Invalid Expression")
+    except ZeroDivisionError:
+        print("You cannot divide by 0")
+    except NameError:
+        print("Invalid Expression")
+    except TypeError:
+        print("Invalid Expression")
 
 
 def calc_area(shape: str):
