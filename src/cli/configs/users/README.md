@@ -1,1 +1,0 @@
-This directory houses all of the data that the user has stored.
