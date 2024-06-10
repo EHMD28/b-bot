@@ -19,7 +19,7 @@ class Applet:
         self.keywords = keywords
         self.start_func = start_func
 
+
     def start(self) -> None:
         self.start_func()
-
-    def get_description() -> None: ...
+    

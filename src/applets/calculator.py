@@ -1,4 +1,4 @@
-from bbot_core.core_utils import Applet
+from bbot_core.applets import Applet
 
 
 def start_calc_applet() -> None:

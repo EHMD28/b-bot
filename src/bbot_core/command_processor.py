@@ -10,15 +10,13 @@ def print_version() -> None:
 
 
 def command_processor(applets: list[Applet] = None) -> None:
-    prompt_string: str = "bbot"
     user_input: str = ""
 
     while user_input not in ["quit", "exit"]:
-        user_input = input(f"{prompt_string}> ")
+        user_input = input("bbot> ")
         
         for applet in applets:
             if user_input in applet.keywords:
-
                 applet.start()
 
         # checking for default operations
