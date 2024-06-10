@@ -1,8 +1,12 @@
-from bbot_core.core_utils import Applet
+from bbot_core.applets import Applet
 
 
 def print_help() -> None:
-    ...
+    print("Not implemented yet")
+
+
+def print_version() -> None:
+    print("Not implemented yet")
 
 
 def command_processor(applets: list[Applet] = None) -> None:
@@ -14,11 +18,13 @@ def command_processor(applets: list[Applet] = None) -> None:
         
         for applet in applets:
             if user_input in applet.keywords:
+
                 applet.start()
 
         # checking for default operations
         match user_input:
             case "help":
-                pass
+                print_help()
             case "ver":
-                pass
+                print_version()
+
