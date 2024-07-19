@@ -6,7 +6,7 @@ def print_help() -> None:
 
 
 def print_version() -> None:
-    print("Not implemented yet")
+    print("B-bot CLI v.1.0.0")
 
 
 def command_processor(applets: list[Applet] = None) -> None:
@@ -25,4 +25,5 @@ def command_processor(applets: list[Applet] = None) -> None:
                 print_help()
             case "ver":
                 print_version()
-
+            case _:
+                print("Invalid command")
