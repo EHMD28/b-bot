@@ -1,5 +1,6 @@
 r"""
-  
+    a module that contains functionalities that come with every distribution
+    of B-bot, regardless of what applets are installed. 
 """
 
 
