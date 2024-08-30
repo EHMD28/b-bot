@@ -1,5 +1,6 @@
 from bbot_core.applets import Applet
 import os
+import json
 
 
 def clear_screen() -> None:
@@ -11,25 +12,25 @@ def print_help() -> None:
 
 
 def print_version() -> None:
-    print("B-bot CLI v.1.0.0")
+    with open("data/settings.json", "r") as f:
+        content: dict = json.load(f)
+        version: str = content["version"]
+        print(version)
 
 
 def command_processor(applets: list[Applet] = None) -> None:
     user_input: str = ""
+    prompt_str: str = "bbot"
 
     keep_running = True
     while keep_running:
-        user_input = input("bbot> ")
-        
-        matched_applet: bool = False
-        
+        user_input = input(f"{prompt_str}> ")
+
+        # TODO: reimplement applets API
+        # checking for applets
         for applet in applets:
             if user_input in applet.keywords:
-                applet.start()
-                matched_applet = True
-
-        if matched_applet:
-            continue
+                ...
 
         # checking for default operations
         match user_input:
