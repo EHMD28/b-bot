@@ -27,4 +27,7 @@ def start_notebooks_applet() -> None:
 notebooks_applet = Applet(name="notebooks",
                           description="an appplet for creating, reading, and writing notebooks",
                           keywords=["notes", "notebook"],
-                          start_func=start_notebooks_applet)
+                          start_func=start_notebooks_applet,
+                          help_string="""The notebooks applet allows for users to create, read, write,
+                          and delete notebooks
+                          """)

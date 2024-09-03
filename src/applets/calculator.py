@@ -18,9 +18,14 @@ def start_calc_applet() -> None:
     while user_inp not in ["exit", "quit"]:
         user_inp = input("calculator> ")
 
-    
+
 # Calculator Applet for Export
-calc_applet = Applet(name="Calculator",
-                     description="an applet for preforming arithmetic operations",
-                     keywords=["calculator", "math"],
-                     start_func=start_calc_applet)
+calc_applet = Applet(
+    name="Calculator",
+    description="an applet for preforming arithmetic operations",
+    keywords=["calculator", "math"],
+    start_func=start_calc_applet,
+    help_string="""The calculator applet can be used for arithmetic operations, unit conversion,
+                     graphing, solving equations, and more. 
+                     """,
+)
