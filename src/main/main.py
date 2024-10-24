@@ -8,7 +8,7 @@ from os import chdir
 
 def main() -> None:
     # this is here to make relative paths more straightforward
-    chdir("src/")
+    chdir("src")
 
     print("Starting B-bot...")
     print(BBOT_ASCII_ART_COLORED)
