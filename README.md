@@ -1,9 +1,10 @@
 # B-bot Version 1.0.0+ Overview
 
-**THIS PROJECT HAS BEEN DEPRECATED**
+Butler Bot (shorted to B-bot) is a multi-purpose virtual assistant written in Python. 
+The purpose of B-bot is to offer a variety of virtual services -- in the form of applets --
+that helps the user complete tasks with increased efficiency. 
 
-B-bot is my personal virtual assistant made to house all of my virtual activity in one specific place.
-
-Notes
-  - While you are fully permitted to use B-bot's source code for your own personal projects, it would be irresponsible to not note that B-bot is designed for my personal use and my personal use only. You will encounter diffculties trying to run this program on your local machine. Developer beware...
+## Commands
+Though applets can be installed to increase B-bot's functionality, he does come with many
+built in operations. 
 
