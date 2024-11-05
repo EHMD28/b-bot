@@ -1,7 +1,7 @@
 from bbot_core.command_processor import command_processor
 from applets.calculator import calc_applet
 from applets.notebooks import notebooks_applet
-from bbot_core.std_utils import BBOT_ASCII_ART_COLORED
+from bbot_core.misc import print_ascii_art
 
 from os import chdir
 
@@ -10,8 +10,8 @@ def main() -> None:
     # this is here to make relative paths more straightforward
     chdir("src")
 
-    print("Starting B-bot...")
-    print(BBOT_ASCII_ART_COLORED)
+    print("Starting B-bot v.1.0.0...")
+    print_ascii_art()
 
     command_processor([
         calc_applet,
