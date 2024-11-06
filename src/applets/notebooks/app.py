@@ -1,27 +1,13 @@
 from bbot_core.applet import Applet
-import os
 
 
 class NotebooksApplet(Applet):
-    def __init__(self): ...
+    def notebook_exists(notebook_name: str): ...
 
+    def open_notebook(notebook_name: str): ...
 
-# def read_notebook(notebook_name: str) -> None:
-#     if os.path.exists(f"data/notebooks/{notebook_name}.txt"):
-#         print("file does exist")
-
-
-# def open_notebook(notebook_name: str) -> None:
-#     ...
-
-
-# def handle_input(inp: str) -> None:
-#     match inp:
-#         case _:
-#             pass
-
-
-# def start_notebooks_applet() -> None:
-#     user_inp: str = ""
-#     while user_inp not in ["exit", "quit"]:
-#         user_inp = input("notebooks> ")
+    # Overridden method
+    def start(self):
+        user_inp: str = ""
+        while user_inp not in ["exit", "quit"]:
+            user_inp = input("notebooks> ")

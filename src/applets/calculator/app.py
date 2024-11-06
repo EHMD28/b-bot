@@ -2,7 +2,19 @@ from bbot_core.applet import Applet
 
 
 class CalculatorApplet(Applet):
-    ...
+    def evaluate_expression(expression: str) -> None: ...
+        
+    def calc_area() -> None: ...
+    
+    def calc_volume() -> None: ...
+    
+    def convert_units() -> None: ...
+    
+    # Overridden method 
+    def start(self):
+        user_inp: str = ""
+        while user_inp not in ["exit", "quit"]:
+            user_inp = input("calculator> ")
 
 
 # def evaluate_expression() -> None: ...

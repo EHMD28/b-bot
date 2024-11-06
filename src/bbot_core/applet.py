@@ -5,12 +5,10 @@ class Applet:
     """The purpose of the Applet class is to provide a consistent and reusable
     API through which B-bot programs can integrate applets.
     """
-
-    def __init__(self, start_func: Callable[[], None]):
-        self.start_func = start_func
-    
+        
     def start(self) -> None:
-        self.start_func()
+        """This method should be overridden by subclasses.
+        """
 
         
 def validate_applet(applet: Applet) -> bool: ...
