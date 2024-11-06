@@ -1,0 +1,7 @@
+{
+    "name": "notebooks",
+    "description": "this is an applet for notebooks",
+    "keywords": ["notes", "notebooks"],
+    "version": "version",
+    "help_str": "help with notes"
+}
