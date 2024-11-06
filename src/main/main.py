@@ -1,6 +1,4 @@
 from bbot_core.command_processor import command_processor
-from applets.calculator import calc_applet
-from applets.notebooks import notebooks_applet
 from bbot_core.misc import print_ascii_art
 
 from os import chdir
@@ -14,8 +12,8 @@ def main() -> None:
     print_ascii_art()
 
     command_processor([
-        calc_applet,
-        notebooks_applet
+        # calc_applet,
+        # notebooks_applet
     ])
 
 

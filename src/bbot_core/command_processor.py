@@ -1,10 +1,5 @@
-from bbot_core.applets import Applet
-import os
-import json
-
-
-def clear_screen() -> None:
-    os.system("clear" if os.name == "posix" else "cls")
+from bbot_core.applet import Applet
+from bbot_core.std_utils import clear_screen
 
 
 def print_standard_help() -> None:
@@ -15,14 +10,18 @@ def create_file(path: str) -> None:
     open(path, "x").close()
 
 
-def print_version() -> None:
-    try:
-        with open("data/settings.json", "r") as f:
-            content: dict = json.load(f)
-            version: str = content["version"]
-            print(version)
-    except FileNotFoundError:
-        create_file("data/settings.json")
+# TODO: implement this
+def get_version(): ...
+
+
+# def print_version() -> None:
+#     try:
+#         with open("data/settings.json", "r") as f:
+#             content: dict = json.load(f)
+#             version: str = content["version"]
+#             print(version)
+#     except FileNotFoundError:
+#         create_file("data/settings.json")
 
 
 def command_processor(applets: list[Applet] = None) -> None:
@@ -49,7 +48,7 @@ def command_processor(applets: list[Applet] = None) -> None:
                 else:
                     print_standard_help()
             case ["ver"] | ["version"]:
-                print_version()
+                print("construction in progress")
             case ["exit"] | ["quit"]:
                 keep_running = False
             case _:
